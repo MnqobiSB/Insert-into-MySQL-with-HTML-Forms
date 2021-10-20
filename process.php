@@ -2,10 +2,10 @@
 
 <?php
   //Assign post variables
-  $first_name = $_POST['first_name'];
-  $last_name = $_POST['last_name'];
-  $department = $_POST['department'];
-  $email = $_POST['email'];
+  $first_name = mysqli_real_escape_string($connect, $_POST['first_name']);
+	$last_name = mysqli_real_escape_string($connect, $_POST['last_name']);
+	$department = mysqli_real_escape_string($connect, $_POST['department']);
+	$email = mysqli_real_escape_string($connect, $_POST['email']);
 
   mysqli_query($connect, "INSERT INTO employees (first_name, last_name, department, email)
   VALUES ('$first_name', '$last_name', '$department', '$email')");
